@@ -241,6 +241,7 @@ void loadSchedules() {
 // ── Valve helpers ─────────────────────────────────────────────────────────────
 void openValve() {
   valveOpen = true;
+  pinMode(RELAY_PIN, OUTPUT);
   digitalWrite(RELAY_PIN, LOW);
   Serial.println(">> VALVE OPEN");
 }
@@ -248,7 +249,7 @@ void openValve() {
 void closeValve() {
   valveOpen        = false;
   scheduledCloseAt = 0;
-  digitalWrite(RELAY_PIN, HIGH);
+  pinMode(RELAY_PIN, INPUT); // float → optocoupler sem corrente → relay OFF (3.3V HIGH não é suficiente para desligar módulo 5V)
   Serial.println(">> VALVE CLOSED");
 }
 
@@ -368,9 +369,8 @@ void handleScheduleToggle() {
 void setup() {
   Serial.begin(115200);
 
-  digitalWrite(RELAY_PIN, HIGH); // pre-set before OUTPUT to avoid LOW glitch on active-LOW relay
-  pinMode(RELAY_PIN, OUTPUT);
-  Serial.printf("Relay pin: GPIO %d — HIGH (closed)\n", RELAY_PIN);
+  pinMode(RELAY_PIN, INPUT); // float on boot → relay stays OFF until explicitly opened
+  Serial.printf("Relay pin: GPIO %d — INPUT/float (closed)\n", RELAY_PIN);
 
   loadSchedules();
   Serial.printf("Loaded %d schedule(s) from NVS.\n", scheduleCount);
