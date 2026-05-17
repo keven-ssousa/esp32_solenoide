@@ -368,8 +368,8 @@ void handleScheduleToggle() {
 void setup() {
   Serial.begin(115200);
 
+  digitalWrite(RELAY_PIN, HIGH); // pre-set before OUTPUT to avoid LOW glitch on active-LOW relay
   pinMode(RELAY_PIN, OUTPUT);
-  digitalWrite(RELAY_PIN, HIGH);
   Serial.printf("Relay pin: GPIO %d — HIGH (closed)\n", RELAY_PIN);
 
   loadSchedules();
