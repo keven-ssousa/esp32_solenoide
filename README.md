@@ -26,7 +26,7 @@ Controle de válvula solenoide via relé pelo ESP32, acionado por uma interface 
 ### Pinagem
 
 ```
-ESP32 GPIO 21  →  IN  do módulo relé
+ESP32 GPIO 26  →  IN  do módulo relé
 ESP32 GND      →  GND do módulo relé
 ESP32 VIN/5V   →  VCC do módulo relé
 
@@ -81,7 +81,7 @@ pio device monitor
 Saída esperada no boot:
 
 ```
-Relay pin: GPIO 21 — HIGH (closed)
+Relay pin: GPIO 26 — INPUT/float (closed)
 Loaded 2 schedule(s) from NVS.
 Connecting to WiFi....
 Connected! Visit: http://192.168.1.22

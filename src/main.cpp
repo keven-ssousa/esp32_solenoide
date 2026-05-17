@@ -21,7 +21,7 @@ static const char* NTP_SERVER2 = "b.st1.ntp.br";
 static const char* TZ_BRAZIL   = "BRT3";          // Brasília: UTC-3, sem horário de verão
 
 // ── Hardware ──────────────────────────────────────────────────────────────────
-const int RELAY_PIN     = 21;
+const int RELAY_PIN     = 26;
 const int MAX_SCHEDULES = 10;
 
 // ── Schedule ──────────────────────────────────────────────────────────────────
