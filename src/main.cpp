@@ -21,7 +21,7 @@ static const char* NTP_SERVER2 = "b.st1.ntp.br";
 static const char* TZ_BRAZIL   = "BRT3";          // Brasília: UTC-3, sem horário de verão
 
 // ── Hardware ──────────────────────────────────────────────────────────────────
-const int RELAY_PIN     = 21;
+const int RELAY_PIN     = 26;
 const int MAX_SCHEDULES = 10;
 
 // ── Schedule ──────────────────────────────────────────────────────────────────
@@ -368,7 +368,7 @@ void handleScheduleToggle() {
 void setup() {
   Serial.begin(115200);
 
-  digitalWrite(RELAY_PIN, HIGH); // pre-set before OUTPUT to avoid LOW glitch on active-LOW relay
+  digitalWrite(RELAY_PIN, HIGH);
   pinMode(RELAY_PIN, OUTPUT);
   Serial.printf("Relay pin: GPIO %d — HIGH (closed)\n", RELAY_PIN);
 
