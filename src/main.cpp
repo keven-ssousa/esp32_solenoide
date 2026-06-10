@@ -9,8 +9,8 @@
 static const char* const WIFI_SSID     = WIFI_SECRET_SSID;
 static const char* const WIFI_PASSWORD = WIFI_SECRET_PASSWORD;
 
-static const IPAddress WIFI_IP  (192, 168,   1,  22);
-static const IPAddress WIFI_GW  (192, 168,   1,   1);
+static const IPAddress WIFI_IP  (10, 0,   0,  22);
+static const IPAddress WIFI_GW  (10, 0,   0,   1);
 static const IPAddress WIFI_SN  (255, 255, 255,   0);
 static const IPAddress WIFI_DNS1(  8,   8,   8,   8);
 static const IPAddress WIFI_DNS2(  8,   8,   4,   4);
